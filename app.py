@@ -4,11 +4,16 @@ import pickle as pk
 import pandas as pd
 import requests
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+#If running locally
 
-API_KEY = os.getenv('API_KEY')
+# from dotenv import load_dotenv
+# load_dotenv()
+# API_KEY = os.getenv('API_KEY')
+
+#If deployed on Streamlit
+
+API_KEY=st.secrets['API_KEY']
 
 def fetch_poster(movie_id):
       url = f"https://api.themoviedb.org/3/movie/{movie_id}?language=en-US"
